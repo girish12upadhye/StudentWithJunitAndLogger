@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,6 +22,7 @@ import com.infy.StudentwithJunitAndLogger.entity.Student;
 import com.infy.StudentwithJunitAndLogger.serviceI.StudentServiceI;
 
 @RestController
+@RequestMapping("/student")
 public class StudentController
 {
 	@Autowired
@@ -80,11 +82,12 @@ public class StudentController
 	}
 
 	// task-102 
+	@GetMapping("/thanks/{name}")
 	public String thanks(@PathVariable String name) {
 		return name+", Thank You! Visit again";
 	}
 	// Task 101
-	@GetMapping("/welcome")
+	@GetMapping("/welcome/{name}")
 	public String greetMessage(@PathVariable String name) {
 		return name+", welcome to Girish Tech";
 
