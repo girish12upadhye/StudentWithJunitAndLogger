@@ -78,8 +78,15 @@ public class StudentController
 		studentServiceI.deleteStudent(sid);
 		return new ResponseEntity<BaseResponse<Optional<Student>>>(new BaseResponse<Optional<Student>>(204, "Student Deleted Successfully", null), HttpStatus.NO_CONTENT);
 	}
+
 	// task-102 
 	public String thanks(@PathVariable String name) {
 		return name+", Thank You! Visit again";
+	}
+	// Task 101
+	@GetMapping("/welcome")
+	public String greetMessage(@PathVariable String name) {
+		return name+", welcome to Girish Tech";
+
 	}
 }
